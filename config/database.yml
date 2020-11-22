@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgis
+  encoding: utf-8
+  host: localhost
+  username: postgres
+  password: postgres
+  pool: 25
+
+development:
+  <<: *default
+  database: fmbs_develop
+
+test:
+  <<: *default
+  database: fmbs_test
+
+production:
+  <<: *default
+  database: <%= ENV['DATABASE_URL'] %>
